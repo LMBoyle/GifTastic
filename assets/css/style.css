@@ -46,6 +46,15 @@ body {
   grid-row: 2;
 }
 
+.gifDiv {
+  display: inline-block;
+  margin: 5px;
+}
+
+.gifDiv p{
+  margin-bottom: 5px;
+}
+
 /* Input Form */
 .input {
   /* background: blue; */

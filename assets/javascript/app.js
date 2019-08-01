@@ -36,7 +36,7 @@ $("#add-show").on("click", function(event) {
 
 
 
-// TODO On button click, run ajax and get 10 gifs
+// On button click, run ajax and get 10 gifs
 function showGifs(){
   console.log("you clicked me");
 
@@ -51,19 +51,21 @@ function showGifs(){
     console.log(response);
     
     $(".gifs").empty();
-    
+
     var results = response.data
 
     for (var i = 0; i < results.length; i++) {
 
     var gifDiv = $("<div>");
+    gifDiv.addClass("gifDiv");
+
+    // TODO Show rating under gif
     var p = $("<p>");
     p.text("Rating: " + results[i].rating);
 
+    // TODO Show 10 static gifs
     var gifImg = $("<img>");
     gifImg.attr("src", results[i].images.fixed_height.url);
-
-
 
     gifDiv.append(p);
     gifDiv.append(gifImg);
@@ -71,10 +73,6 @@ function showGifs(){
     };
   });
 }
-
-// TODO Show 10 static gifs
-
-// TODO Show rating under gif
 
 // TODO On gif click, animate.
 
