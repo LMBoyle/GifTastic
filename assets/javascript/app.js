@@ -59,27 +59,48 @@ function showGifs(){
     var gifDiv = $("<div>");
     gifDiv.addClass("gifDiv");
 
-    // TODO Show rating under gif
+    // Show rating under gif
     var p = $("<p>");
     p.text("Rating: " + results[i].rating);
 
-    // TODO Show 10 static gifs
+    // Show 10 static gifs
     var gifImg = $("<img>");
-    gifImg.attr("src", results[i].images.fixed_height.url);
+    gifImg.attr("src", results[i].images.fixed_height_still.url);
+    gifImg.attr("data-still", results[i].images.fixed_height_still.url);
+    gifImg.attr("data-animate", results[i].images.fixed_height.url);
+    gifImg.attr("data-state", "still");
+    gifImg.addClass("gifImg");
 
-    gifDiv.append(p);
     gifDiv.append(gifImg);
+    gifDiv.append(p);
     $(".gifs").prepend(gifDiv);
     };
   });
 }
 
-// TODO On gif click, animate.
+// TODO On gif click...
+function animate() {
+  console.log($(this).attr("data-state"));
 
-// TODO On second gif click, unanimate
+  var state = $(this).attr("data-state");
+
+  // Animate
+  if (state === "still") {
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  }
+
+  //Unanimate
+  else if (state === "animate") {
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
+  }
+}
 
 
 // CALL FUNCTIONS ============================
 $(document).on("click", ".show-btn", showGifs);
 
 renderButtons();
+
+$(document).on("click", ".gifImg", animate);
