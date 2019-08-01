@@ -2,7 +2,7 @@
 var topics = ["Rick and Morty", "Greys Anatomy", "Orange Is The New Black", "Stranger Things", "Supernatural", "The Simpsons", "Friends", "How I Met Your Mother", "Teen Wolf", "Vikings", "My Name Is Earl", "White Collar", "American Horror Story", "The Great British Baking Show"]
 
 // FUNCTIONS =================================
-// TODO On load, create and display buttons on screen
+// On load, create and display buttons on screen
 function renderButtons() {
   $(".btns").empty();
 
@@ -16,29 +16,57 @@ function renderButtons() {
     b.attr("data-name", topics[i]);
 
     b.text(topics[i]);
-    
+
     $(".btns").append(b);
   }
 }
 
-/*
-// This function handles events where a movie button is clicked
-$("#add-movie").on("click", function(event) {
+// On submit of topic, create new button
+$("#add-show").on("click", function(event) {
   event.preventDefault();
-  // This line grabs the input from the textbox
-  var movie = $("#movie-input").val().trim();
 
-  // Adding movie from the textbox to our array
-  movies.push(movie);
+  var show = $("#user-show").val().trim();
 
-  // Calling renderButtons which handles the processing of our movie array
+  topics.push(show);
+
   renderButtons();
-});
-*/
 
-// TODO On submit of topic, create new button
+  $("#user-show").val('')
+});
+
+
 
 // TODO On button click, run ajax and get 10 gifs
+function showGifs(){
+  console.log("you clicked me");
+
+  var showG = $(this).attr("data-name");
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+    showG + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    console.log(response);
+
+    var results = response.data
+
+    for (var i = 0; i < results.length; i++) {
+
+    var gifDiv = $("<div>");
+    var p = $("<p>");
+    p.text("Rating: " + results[i].rating);
+
+    var gifImg = $("<img>");
+    gifImg.attr("src", results[i].images.fixed_height.url);
+
+    gifDiv.append(p);
+    gifDiv.append(gifImg);
+    $(".gifs").prepend(gifDiv);
+    };
+  });
+}
 
 // TODO Show 10 static gifs
 
@@ -50,6 +78,6 @@ $("#add-movie").on("click", function(event) {
 
 
 // CALL FUNCTIONS ============================
-// $(document).on("click", ".show-btn", showGifs);
+$(document).on("click", ".show-btn", showGifs);
 
 renderButtons();
