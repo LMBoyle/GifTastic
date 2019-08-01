@@ -2,19 +2,54 @@
 var topics = ["Rick and Morty", "Greys Anatomy", "Orange Is The New Black", "Stranger Things", "Supernatural", "The Simpsons", "Friends", "How I Met Your Mother", "Teen Wolf", "Vikings", "My Name Is Earl", "White Collar", "American Horror Story", "The Great British Baking Show"]
 
 // FUNCTIONS =================================
-  // TODO On load, create and display buttons on screen
+// TODO On load, create and display buttons on screen
+function renderButtons() {
+  $(".btns").empty();
 
-  // TODO On submit of topic, create new button
+  // Loop through the array
+  for (var i = 0; i < topics.length; i++) {
 
-  // TODO On button click, run ajax and get 10 gifs
+    var b = $("<button>");
 
-  // TODO Show 10 static gifs
+    b.addClass("show-btn");
 
-  // TODO Show rating under gif
+    b.attr("data-name", topics[i]);
 
-  // TODO On gif click, animate.
+    b.text(topics[i]);
+    
+    $(".btns").append(b);
+  }
+}
 
-  // TODO On second gif click, unanimate
+/*
+// This function handles events where a movie button is clicked
+$("#add-movie").on("click", function(event) {
+  event.preventDefault();
+  // This line grabs the input from the textbox
+  var movie = $("#movie-input").val().trim();
+
+  // Adding movie from the textbox to our array
+  movies.push(movie);
+
+  // Calling renderButtons which handles the processing of our movie array
+  renderButtons();
+});
+*/
+
+// TODO On submit of topic, create new button
+
+// TODO On button click, run ajax and get 10 gifs
+
+// TODO Show 10 static gifs
+
+// TODO Show rating under gif
+
+// TODO On gif click, animate.
+
+// TODO On second gif click, unanimate
 
 
 // CALL FUNCTIONS ============================
+// $(document).on("click", ".show-btn", showGifs);
+
+renderButtons();
