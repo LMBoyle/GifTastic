@@ -49,7 +49,9 @@ function showGifs(){
     method: "GET"
   }).then(function(response) {
     console.log(response);
-
+    
+    $(".gifs").empty();
+    
     var results = response.data
 
     for (var i = 0; i < results.length; i++) {
@@ -60,6 +62,8 @@ function showGifs(){
 
     var gifImg = $("<img>");
     gifImg.attr("src", results[i].images.fixed_height.url);
+
+
 
     gifDiv.append(p);
     gifDiv.append(gifImg);
