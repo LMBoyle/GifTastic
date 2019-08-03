@@ -28,20 +28,46 @@ body {
   justify-content: space-evenly;
 }
 
-/* Buttons */
-.btns {
-  /* background: black; */
+/* 'TV Guide' */
+.tvGuide {
+  background: black;
+  color: white;
   grid-column: 1 / span 5;
   grid-row: 1;
+  display: grid;
+  justify-items: start;
+}
+
+th {
+  font-size: 20px;
+  border: 1px solid white;
+  padding: 2px 50px 2px 2px;
+}
+
+table {
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.btns {
+  background: black;
+  color: white;
+  grid-column: 1 / span 5;
+  grid-row: 2;
 }
 
 .show-btn {
-  margin: 5px;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 5px 45px 5px 5px;
+  float: left;
 }
 
 /* Gifs */
 .gifs {
-  /* background: red; */
   grid-column: 1 / 5;
   grid-row: 2;
 }
@@ -66,7 +92,6 @@ body {
 
 /* Input Form */
 .input {
-  /* background: blue; */
   grid-column: 5;
   grid-row: 2;
 }
