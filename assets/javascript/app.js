@@ -58,7 +58,8 @@ function showGifs(){
 
       // Show rating under gif
       var p = $("<p>");
-      p.text("Rating: " + results[i].rating);
+      p.addClass("rating")
+      p.text("TV " + results[i].rating.toUpperCase());
 
       // Show 10 static gifs
       var gifImg = $("<img>");
@@ -74,7 +75,6 @@ function showGifs(){
       $(".gifs").prepend(gifDiv);
 
     };
-    $(".gifs").prepend("<hr>");
   });
 }
 
@@ -121,7 +121,6 @@ function showMore(event){
       gifDiv.append(p);
       $(".gifs").prepend(gifDiv);
     };
-    $(".gifs").prepend("<hr>");
   });
 }
 

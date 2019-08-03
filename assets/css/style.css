@@ -55,6 +55,15 @@ body {
   margin-bottom: 5px;
 }
 
+/* Ratings */
+.rating {
+  background-color: black;
+  color: white;
+  padding: 5px;
+  width: 60px;
+  margin: 0 auto;
+}
+
 /* Input Form */
 .input {
   /* background: blue; */
