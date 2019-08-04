@@ -35,7 +35,6 @@ body {
   grid-column: 1 / span 5;
   grid-row: 1;
   display: grid;
-  justify-items: start;
 }
 
 th {
@@ -47,6 +46,12 @@ th {
 table {
   margin-bottom: 10px;
 }
+
+.times {
+  grid-row: 1;
+  grid-column: 1 / span 5;
+}
+
 
 /* Buttons */
 .btns {
@@ -75,10 +80,21 @@ table {
 .gifDiv {
   display: inline-block;
   margin: 5px;
+  position: relative;
 }
 
 .gifDiv p{
-  margin-bottom: 5px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  width: 50px;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.gifImg {
+  border: 2px solid black;
+  border-radius: 15px;
 }
 
 /* Ratings */

@@ -71,7 +71,7 @@ function showGifs(){
       gifImg.addClass("gifImg");
 
       gifDiv.append(gifImg);
-      gifDiv.append(p);
+      gifDiv.prepend(p);
       $(".gifs").prepend(gifDiv);
 
     };
