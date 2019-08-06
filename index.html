@@ -39,13 +39,24 @@
       <!-- Div for input form -->
       <div class="input">
         <form>
-          Type In Your Favorite TV Show: <br>
-          <input id="user-show" type="text" name="tvshow">
+          <input id="user-show" type="text" name="tvshow" placeholder="Type In Your Favorite TV Show">
           <input id="add-show" type="submit" value="Submit">
           <br>
           <button id="showMore"> Show Me More! </button>
         </form>
+
+        <div class="info">
+          <p> Rated: <span class="spanInfo" id="rated"></span></p>
+          <p> Writer(s): <span class="spanInfo" id="writer"></span></p>
+          <p> Actors: <span class="spanInfo" id="actors"></span></p>
+          <p> Released: <span class="spanInfo" id="released"></span></p>
+          <p> Year(s): <span class="spanInfo" id="years"></span></p>
+          <p> Total Season(s): <span class="spanInfo" id="seasons"></span></p>
+        </div>
       </div>
+
+      <!-- Div for extra information on show -->
+
     </div>
 
     <script src="assets/javascript/app.js"></script>

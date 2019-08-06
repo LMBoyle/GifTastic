@@ -1,5 +1,5 @@
 // VARIABLES =================================
-var topics = ["Rick and Morty", "Greys Anatomy", "Orange Is The New Black", "Stranger Things", "Supernatural", "The Simpsons", "Friends", "How I Met Your Mother", "Teen Wolf", "Vikings", "My Name Is Earl", "White Collar", "American Horror Story", "The Great British Baking Show"];
+var topics = ["Rick and Morty", "Grey's Anatomy", "Orange Is The New Black", "Stranger Things", "Supernatural", "The Simpsons", "Friends", "How I Met Your Mother", "Teen Wolf", "Vikings", "My Name Is Earl", "White Collar", "American Horror Story", "The Great British Baking Show"];
 var num = 0;
 // FUNCTIONS =================================
 // On load, create and display buttons on screen
@@ -73,19 +73,21 @@ function showGifs(){
       gifDiv.append(gifImg);
       gifDiv.prepend(p);
       $(".gifs").prepend(gifDiv);
-
     };
+
+    showInfo();
   });
 }
 
-
+// On button click, run ajax again and get 10 more gifs
 function showMore(event){
   event.preventDefault();
 
   num += 10;
-  console.log(num)
+  console.log("Num: ", num)
 
   var moreGif = $(".gifImg").attr("data-name");
+  console.log("More Gif: ", moreGif)
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + moreGif + "&api_key=GMGkegz09o1ioCxZE030hZogINvqkb1e&limit=10&offset=" + num;
   
   console.log(queryURL);
@@ -144,6 +146,34 @@ function animate() {
   }
 }
 
+function showInfo() {
+  $(".spanInfo").empty();
+
+  // Info from OMDb
+  var showName = $(".gifImg").attr("data-name");
+  console.log("Show Name: ", showName);
+  var queryURL = "https://www.omdbapi.com/?t=" + showName + "&y=&plot=short&apikey=trilogy";
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    console.log(response);
+    var rated = response.Rated
+    var writer = response.Writer
+    var actors = response.Actors
+    var released = response.Released
+    var years = response.Year
+    var seasons = response.totalSeasons
+
+    $("#rated").append(rated)
+    $("#writer").append(writer)
+    $("#actors").append(actors)
+    $("#released").append(released)
+    $("#years").append(years)
+    $("#seasons").append(seasons)
+  });
+}
 
 // CALL FUNCTIONS ============================
 $(document).on("click", ".show-btn", showGifs);

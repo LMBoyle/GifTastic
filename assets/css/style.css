@@ -111,3 +111,25 @@ table {
   grid-column: 5;
   grid-row: 2;
 }
+
+#showMore,
+#add-show {
+  background-color: black;
+  color: white;
+  border: 0px solid white;
+  font-size: 20px;
+}
+
+#user-show {
+  height: 25.2px;
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+  padding: 2px;
+}
+
+/* Show Info */
+.info {
+  margin-top: 10px;
+  font-size: 15px;
+}
