@@ -1,11 +1,23 @@
 # GifTastic
 Find popular gifs of your favorite shows! Click on the pre-set shows or add your own! See as many as you like. 
 
+Homework assignment for UNC Coding Bootcamp to learn how to use APIs to get data, in this case, gifs.
+ 
+## Instructions
 Click on gif to make it move and click again to stop.
 
-Made with HTML, CSS and JavaScript
+Type in your favorite TV show and see gifs for it.
 
-[Deployed link](https://lmboyle.github.io/GifTastic/)
+## Languages/Technologies 
+* HTML
+* CSS
+* JavaScript
+* jQuery
+* Giphy API
 
-[Basic Portfolio](https://lmboyle.github.io/Basic-Portfolio/portfolio.html)
+## Links
+[Deployed Link](https://lmboyle.github.io/GifTastic/)
+
+[Portfolio](https://lmboyle.github.io/)
+
 
